@@ -9,11 +9,7 @@ ORIGINAL_MELANOMA = 'melanoma_images'
 ORIGINAL_MISC = 'misc_images'
 
 #Directory for dataset 
-<<<<<<< HEAD
 DATABASE_DIRECTORY = "images_database_augmented_misc"
-=======
-DATABASE_DIRECTORY = "images_database"
->>>>>>> parent of 2e50aff... 2022-11-13
 
 TRAIN_DIRECTORY = os.path.join(DATABASE_DIRECTORY,'train')
 VALIDATION_DIRECTORY = os.path.join(DATABASE_DIRECTORY,'validation')
@@ -70,7 +66,7 @@ def create_database_directories():
     except:
         pass
 
-def __move_images__(original_path, train_path, test_path, validation_path, num = 8, den = 10):
+def __move_images__(original_path, train_path, test_path, validation_path, num = 80, den = 100):
 
     count = len(os.listdir(original_path))
     fnames = os.listdir(original_path)
@@ -81,12 +77,12 @@ def __move_images__(original_path, train_path, test_path, validation_path, num =
         dst = os.path.join(train_path, fname)
         shutil.copyfile(src, dst)
 
-    for fname in fnames[ num * count // den : ((num + 1) * count) // den ]:
+    for fname in fnames[ num * count // den : ((num + 10) * count) // den ]:
         src = os.path.join(original_path, fname)
         dst = os.path.join(test_path, fname)
         shutil.copyfile(src, dst)
 
-    for fname in fnames[ ( (num + 1) * count) // den : ]:
+    for fname in fnames[ ( (num + 10) * count) // den : ]:
         src = os.path.join(original_path, fname)
         dst = os.path.join(validation_path, fname)
         shutil.copyfile(src, dst)

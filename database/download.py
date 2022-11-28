@@ -1,7 +1,7 @@
 import json
 import os
 import requests
-from constants import *
+from utils.constants import *
 from database.constants import BASAL_JSON, BASAL_PATH, BASAL_REQUEST
 
 def get_isic_json(request, json_file):
